@@ -17,9 +17,9 @@ const LugaresNavigator = createStackNavigator (
   {
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: Platform.OS === 'android' ? Cores.primary : 'white',
-        headerTintColor: Platform.OS === 'android' ? 'white' : Cores.primary
-      }
+        backgroundColor: Platform.OS === 'android' ? Cores.primary : 'white',        
+      },
+      headerTintColor: Platform.OS === 'android' ? 'white' : Cores.primary
     }
   }
 )
