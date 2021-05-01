@@ -9,7 +9,7 @@ import LugarItem from '../componentes/LugarItem';
 
 import Cores from '../constantes/Cores';
 
-const ListaDeLugaresTela = () => {
+const ListaDeLugaresTela = (props) => {
   const lugares = useSelector (estado => estado.lugares.lugares)
   return (
     <FlatList 
@@ -24,8 +24,8 @@ const ListaDeLugaresTela = () => {
                 {tituloLugar: lugar.item.titulo, idLugar: lugar.id
               });
             }}
-            imagem={null}
-            endereco={null}  
+            imagem={lugar.item.imagemURI}
+            endereco={lugar.item.endereco}  
           />
       )}
     />
