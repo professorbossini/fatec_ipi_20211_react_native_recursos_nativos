@@ -1,6 +1,21 @@
 import * as FileSystem from 'expo-file-system';
 export const ADD_LUGAR = 'ADD_LUGAR';
-import { inserirLugar } from '../helpers/db';
+export const LISTA_LUGARES = 'LISTA_LUGARES';
+import { inserirLugar, buscarLugares } from '../helpers/db';
+
+export const listarLugares = () => {
+  return async dispatch => {
+    try{
+      const resultadoDB = await buscarLugares();
+      dispatch ({type: LISTA_LUGARES, lugares: resultadoDB.rows._array})
+      //console.log(resultadoDB);
+    }
+    catch (erro){
+      console.log(erro);
+      throw erro;
+    }
+  }
+}
 
 export const addLugar = (nomeLugar, imagem) => {
   return async (dispatch) => {

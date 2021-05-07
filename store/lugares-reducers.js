@@ -12,6 +12,10 @@ export default (estado = estadoInicial, action) => {
       return {
         lugares: estado.lugares.concat(lugar)
       }
+    case lugaresActions.LISTA_LUGARES:
+      return {
+        lugares: action.lugares.map (lugar => new Lugar(lugar.id.toString(), lugar.nome, lugar.imagemURI))
+      }
   }
   return estado;
 }

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StyleSheet, Text, View , Platform, FlatList } from 'react-native'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
-import { useSelector } from 'react-redux';
-
+import { useSelector, useDispatch } from 'react-redux';
+import * as lugaresActions from '../store/lugares-actions';
 
 import BotaoCabecalho from '../componentes/BotaoCabecalho'
 import LugarItem from '../componentes/LugarItem';
@@ -10,7 +10,12 @@ import LugarItem from '../componentes/LugarItem';
 import Cores from '../constantes/Cores';
 
 const ListaDeLugaresTela = (props) => {
-  const lugares = useSelector (estado => estado.lugares.lugares)
+  const lugares = useSelector (estado => estado.lugares.lugares);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(lugaresActions.listarLugares())
+  }, [dispatch])
   return (
     <FlatList 
       data={lugares}
