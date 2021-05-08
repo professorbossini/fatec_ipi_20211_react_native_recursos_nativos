@@ -10,12 +10,16 @@ import LugarItem from '../componentes/LugarItem';
 import Cores from '../constantes/Cores';
 
 const ListaDeLugaresTela = (props) => {
+
   const lugares = useSelector (estado => estado.lugares.lugares);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(lugaresActions.listarLugares())
   }, [dispatch])
+
+  
+
   return (
     <FlatList 
       data={lugares}

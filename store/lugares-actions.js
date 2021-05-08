@@ -1,5 +1,6 @@
 import * as FileSystem from 'expo-file-system';
 export const ADD_LUGAR = 'ADD_LUGAR';
+
 export const LISTA_LUGARES = 'LISTA_LUGARES';
 import { inserirLugar, buscarLugares } from '../helpers/db';
 
@@ -44,7 +45,4 @@ export const addLugar = (nomeLugar, imagem) => {
       throw err;
     }
   }
-  // return {
-  //   type: ADD_LUGAR, dadosLugar: {nomeLugar: nomeLugar, imagem: imagem}
-  // }
 }
